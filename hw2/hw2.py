@@ -1,4 +1,4 @@
--'''
+'''
 Created on 09 26 2022
 @author:   Bhagawat Chapagain & Neel Kulkarni
 Pledge:    I pledge my honor that I have abided by the Stevens Honor System. 
@@ -22,3 +22,24 @@ Dictionary = ['a', 'am', 'at', 'apple', 'bat', 'bar', 'babble', 'can', 'foo',
               'spam', 'spammy', 'zzyzva']
 
 # Implement your functions here.
+def letterScore(letter, scoreList):
+  if letter == "" or scoreList == []:
+    return 0
+  elif letter == scoreList[0][0]:
+    return scoreList[0][1]
+  else:
+    return letterScore(letter, scoreList[1:])
+
+'''print(letterScore("z", scoreList=scrabbleScores)) -> returns 10''' 
+
+def wordScore(S, scoreList):
+  if S == "":
+    return 0
+  else:
+    return letterScore(S[0], scoreList) + wordScore(S[1:], scoreList)
+    
+'''print(wordScore("spam", scrabbleScores)) -> returns 8
+print(wordScore("wow", [['o', 10], ['w', 42]])) -> returns 94'''
+
+def scoreList(Rack):
+    pass

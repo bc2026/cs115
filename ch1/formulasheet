@@ -1,0 +1,259 @@
+\documentclass{article}
+\usepackage[landscape]{geometry}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{esint}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[pdf]{pstricks}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{amsmath,amssymb}
+
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\makeatletter
+
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+
+\title{STAT 251 Formula Sheet}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\advance\topmargin-.8in
+\advance\textheight3in
+\advance\textwidth3in
+\advance\oddsidemargin-1.45in
+\advance\evensidemargin-1.45in
+\parindent0pt
+\parskip2pt
+\newcommand{\hr}{\centerline{\rule{3.5in}{1pt}}}
+%\colorbox[HTML]{e4e4e4}{\makebox[\textwidth-2\fboxsep][l]{texto}
+
+
+
+\newcommand\cPic 
+ {
+    \resizebox{64}{64}{
+    \begin{tikzpicture}
+        \draw[-,fill=white!95!red](0,0)--(3,0)--(4,1)--(1,1)--cycle;
+        \node at (2,0.5) {$|\textcolor{blue}{a}\times \textcolor{red}{b}|$};
+        \draw[ultra thick,-latex,blue](0,0)--(3,0)node[midway,below]{$a$};
+        \draw[ultra thick,-latex,red](0,0)--(1,1)node[midway,above]{$b$};
+        \draw[ultra thick,-latex,blue!50!red](0,0)--(0,3)node[pos=0.7,right]{$a\times b$};
+        \draw (0.6,0) arc [start angle=0,end angle=45,radius=0.6]
+        node[pos=0.7,right]{$\theta$};
+    \end{tikzpicture}}
+ 
+ }
+
+
+
+
+\begin{document}
+
+\begin{center}{\huge{\textbf{MA 125 Formula Sheet}}}\\
+\end{center}
+\begin{multicols*}{2}
+
+\tikzstyle{mybox} = [draw=black, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{fancytitle} =[fill=black, text=white, font=\bfseries]
+
+%------------ Measures of Center ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.46\textwidth}
+    
+	\begin{tabular}{lp{8cm} l}
+    	Vector: 
+    	& \\$\vec{u} = <x_{1}, y_{1}, z_{1}>; \vec{v} = <x_{2}, y_{2}, z_{2}>$\\
+        Unit Vector: $\frac{\vec{a}}{\|\vec{a}\|}$
+	\end{tabular}
+	
+    \end{minipage}
+};
+%------------ Measures of Center Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Vectors};
+\end{tikzpicture}
+
+
+%------------ Measures of Variability ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.46\textwidth}
+  
+	\begin{tabular}{lp{8cm} l}
+    	Definition: & \\$\vec{a} \cdot \vec{b} = \sum_{i=1}^{n} a_{i}b_{i}$\\
+                      e.g $\vec{u} \cdot \vec{v} = x_{1}x_{2} + y_{1}y_{2} + z_{1}z_{2}$\\
+                      $\|\vec{u}\|\|\vec{v}\|\cos{\theta}$\\
+    	Properties: & \\$\vec{u} \cdot \vec{u} = \| \vec{u} \|^{2}$\\
+                      $\vec{u}(\vec{v} + \vec{w}) = \vec{u}\vec{v} + \vec{u}\vec{w}$
+                      $\vec{u} \times 0 = 0$\\
+                      $(k\vec{u}) \cdot \vec{v} = (k\vec{v})\cdot\vec{u}$\\
+                      A vector is orthogonal if the dot product is 0 or $\theta = \frac{\pi}{2}$\\
+	\end{tabular}
+	
+
+    \end{minipage}
+};
+%------------ Measures of Variability Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Dot Product};
+\end{tikzpicture}
+
+
+%------------ Discrete Random Variable and Distributions ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.46\textwidth}
+    Vector projection is the vector produced when one vector is resolved into two component vectors, one that is parallel to the second vector and one that is perpendicular to the second vector.\\
+
+    
+    $proj_{\vec{u}}\vec{v}$ \<- this is read as “the vector projection of u onto v.”\\
+    $\|proj_{\vec{u}}\vec{v}\|$ = $\|\vec{v}\|\cos{\theta}$ iff $\theta = n: -\|\vec{v}\| = \|proj_{\vec{u}}\vec{v}\|$\\
+    $\|proj_{\vec{u}}\vec{v}\| = \frac{\vec{u}\cdot\vec{v}}{\|\vec{u}\|}$
+    $proj_{\vec{u}}\vec{v} = (\frac{\vec{u}\cdot\vec{v}}{\|\vec{u}\|^{2}})\cdot \vec{u}$\\
+    $\vec{v_{2}} - \vec{v_{1}} = \vec{v}$\\
+
+
+    \begin{enumerate}
+    \setlength\itemsep{0em}
+        \item Find the parallel.
+        \item v-parallel to find perpendicular vector
+    \end{enumerate}
+	
+	
+    \end{minipage}
+};
+%------------ Discrete Random Variable and Distributions Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Vector Projection};
+\end{tikzpicture}
+
+
+%------------ Sets and Probability ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.46\textwidth}
+    
+    
+    \textbf{Properties of Cross Product:}
+    \begin{itemize}
+	\setlength\itemsep{0em}
+        \item $\vec{u} \times \vec{v} = -\vec{v} \times \vec{u}$
+        \item $\vec{u}(\vec{v} \times \vec{w}) = (\vec{u}\times\vec{v})\cdot\vec{w}$
+        \item $\vec{u}\cdot(\vec{u} \times \vec{v}) = 0 $
+        
+	\end{itemize}
+    \begin{vmatrix}
+        \hat{i} & \hat{j} & \hat{k} \\ 
+        a_{1} & a_{2} & a_{3}  \\ 
+        b_{1} & b_{2} & b_{3}  \\ 
+        c_{1} & c_{2} & c_{3}\notag
+    \end{vmatrix} = 
+    $\hat{i}\vert a_{2}b_{3} - a_{3}b_{2}\vert  - \hat{j}\vert a_{1}b_{3} - a_{3}b_{1}\vert  + \hat{k}\vert a_{1}b_{2}-a_{2}b_{1}\vert $\\
+    
+    \vspace{-.5cm}
+	\begin{itemize}
+	\setlength\itemsep{0em}
+	    \item $\|\vec{a}\|\cdot\|\vec{b}\|\sin{\theta} = A_{parallelogram}$
+	    \item $A_{\triangle} = \frac{1}{2} \cdor A_{parallelogram}$ or $\frac{1}{2}\|\vec{a}\|\|\vec{b}\|\sin{\theta} $
+	    \item Vol. = $\vec{u}\cdot(\vec{v} \times \vec{w})$
+	\end{itemize}
+	
+	
+    \end{minipage}
+};
+%------------ Sets and Probability Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Cross Product};
+\end{tikzpicture}
+
+
+%------------ Continuous Random Variable and Distributions ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.46\textwidth}
+        \textbf{Parallel Vectors} 
+        \begin{itemize}
+        \setlength\itemsep{0em}
+            \item $v_{1} = t<a,b,c> = t\cdot v_{2}$
+        \end{itemize}
+    
+        \textbf{Creating a Line} 
+        \begin{itemize}
+        \setlength\itemsep{0em}
+            \item $x = x_{0} + at$ where $x_{0} is a given point$ and $a is a given direction$
+        \end{itemize}
+    
+        \textbf{Symetric Form} 
+        \begin{itemize}
+        \setlength\itemsep{0em}
+            \item $t = \frac{x - x_{0}}{a} = \frac{y-y_{0}}{b} = \frac{z-z_{0}}{c}$
+        \end{itemize}
+    
+        \textbf{Creating a Plane} 
+        \begin{itemize}
+        \setlength\itemsep{0em}
+                \item $a(x-x_{0}) + b(y-y_{0}) + c(z-z_{0})$
+                \item $<a,b,c>$ is a normal vector. 
+                \item x_{0}, y_{0}, z_{0} are points 
+        \end{itemize}
+    
+        \textbf{Parametric Equation for Line Passing Through Two Pts} 
+        \begin{itemize}
+        \setlength\itemsep{0em}
+                \item Direction vector from pt
+                \item $x = x_{0} + at$
+        \end{itemize}
+    
+        \textbf{Line Intersecting Plane} 
+        \begin{itemize}
+        \setlength\itemsep{0em}
+                \item Take parametric equation \& plug into equation
+                \item Solve for t 
+                \item Find x,y,z
+        \end{itemize}
+    
+        \textbf{Find Plane w/ Pt} 
+        \begin{itemize}
+        \setlength\itemsep{0em}
+                \item Find \vec{n}
+                \item Plug vector \& pt into equation
+                \begin{enumerate}
+                    \item Normal vectors of planes
+                    \item Cross product 
+                \end{enumerate}
+    
+        \end{itemize}
+    
+	
+    \end{minipage}
+};
+%------------ Continuous Random Variable and Distributions Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Lines, Planes, Parametrization};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.46\textwidth}
+
+	
+	
+    \end{minipage}
+};
+%------------ Continuous Random Variable and Distributions Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Figures};
+\end{tikzpicture}
+
+
+
+\end{multicols*}
+\end{document}
+
+
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
