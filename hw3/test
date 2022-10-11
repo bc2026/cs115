@@ -1,0 +1,35 @@
+def take(n, L):
+    '''Returns the list L[0:n], assuming L is a list and n is at least 0.'''
+    # your code goes here
+    return [] if L == [] or n < 0 else [L[0]] + take(n-1, L[1:])
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' PROBLEM 3
+' Similar to problem 2, will implement another function
+' that does a kind of slice. You must use recursion for this
+' one. Your code is allowed to refer to list index L[0] and
+' also use slice notation L[1:] but no other slices.
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+L = list(range(10))
+
+def drop(n=7, L=list(range(10))):
+    '''Returns the list L[n:], assuming L is a list and n is at least 0.'''
+    # your code goes here
+
+    if n < 0 or L == []:
+        return []
+    else:
+        r =  drop(n-1, L[:-1]) + [L[-1]]
+        return r
+
+
+# should return L[7:]
+print(\
+    f'Expected: {L[7:]}', 
+    f'Got: {drop()}', sep="\n"
+    )
+
+
